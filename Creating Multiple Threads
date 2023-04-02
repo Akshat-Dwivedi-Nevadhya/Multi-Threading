@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+//Creating Multiple Threads By Extending Thread Class
+/*
+class MyThread extends Thread{
+    public void run(){
+        System.out.println("Child Thread");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(n);
+    }
+}
+class MyThread2 extends Thread{
+    public void run(){
+        System.out.println("Another child Thread.");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(n);
+    }
+}
+
+public class CreatingMultipleThread {
+    public static void main(String[] args) {
+        MyThread t = new MyThread();
+        t.start();
+        MyThread2 t2 = new MyThread2();
+        t2.start();
+    }
+}
+*/
+
+
+//Creating Multiple Threads by Implementing Runnable Interface
+
+class MyThread implements Runnable{
+    public void run(){
+        System.out.println("Child Thread");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(n);
+    }
+}
+
+class MyThread2 implements  Runnable {
+    public void run() {
+        System.out.println("Another child Thread.");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(n);
+    }
+}
+
+public class CreatingMultipleThread{
+    public static void main(String[] args) {
+         MyThread m = new MyThread();
+         MyThread2 m2 = new MyThread2();
+
+         Thread t1 = new Thread(m);
+         Thread t2 = new Thread(m2);
+
+         t1.start();
+         t2.start();
+    }
+}
