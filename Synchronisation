@@ -1,0 +1,26 @@
+class Car implements Runnable{
+    synchronized public void run(){
+        System.out.println(Thread.currentThread().getName() + " Entered the parking lot.");
+        System.out.println(Thread.currentThread().getName() + " Entered the car to drive the car.");
+        System.out.println(Thread.currentThread().getName() + " Driven and parked the car again");
+    }
+}
+
+
+public class Synchronization {
+    public static void main(String[] args) {
+        Car c = new Car();
+        Thread t1 = new Thread(c);
+        Thread t2 = new Thread(c);
+        Thread t3 = new Thread(c);
+
+        t1.start();
+        t2.start();
+        t3.start();
+
+        t1.setName("Son-1");
+        t2.setName("Son-2");
+        t3.setName("Son-3");
+
+    }
+}
